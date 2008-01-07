@@ -1,0 +1,55 @@
+#
+Summary:	Transparent read-write compression filesystem
+Summary(pl.UTF-8):	System plików z przeźroczystą kompresją danych
+Name:		fusecompress
+Version:	1.99.14
+Release:	1
+License:	GPL
+Group:		Applications/System
+Source0:	http://miio.net/files/%{name}-%{version}.tar.gz
+# Source0-md5:	a1342b263ae1d115af5c11568bdedd72
+URL:		http://miio.net/fusecompress/
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	bzip2-devel
+BuildRequires:	libfuse-devel
+BuildRequires:	libstdc++-devel
+BuildRequires:	rlog-devel
+BuildRequires:	zlib-devel
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%description
+FuseCompress provides a mountable Linux filesystem which transparently
+compress its content. Files stored in this filesystem are compressed
+on the fly and Fuse allows to create a transparent interface between
+compressed files and user applications.
+
+%description -l pl.UTF-8
+FuseCompress udostępnia montowalny system plików, który preźroczyście
+(w locie) kompresuje swoją zawartość.
+
+%prep
+%setup -q
+
+%build
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
+%configure
+%{__make}
+
+%install
+rm -rf $RPM_BUILD_ROOT
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(644,root,root,755)
+%doc AUTHORS ChangeLog NEWS README TODO
+%attr(755,root,root) %{_bindir}/%{name}
+%attr(755,root,root) %{_bindir}/%{name}_offline
