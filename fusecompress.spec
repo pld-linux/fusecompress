@@ -1,6 +1,5 @@
-#
 Summary:	Transparent read-write compression filesystem
-Summary(pl.UTF-8):	System plików z przeźroczystą kompresją danych
+Summary(pl.UTF-8):	System plików z przezroczystą kompresją danych
 Name:		fusecompress
 Version:	1.99.14
 Release:	1
@@ -25,8 +24,10 @@ on the fly and Fuse allows to create a transparent interface between
 compressed files and user applications.
 
 %description -l pl.UTF-8
-FuseCompress udostępnia montowalny system plików, który preźroczyście
-(w locie) kompresuje swoją zawartość.
+FuseCompress udostępnia montowalny system plików, który przezroczyście
+kompresuje swoją zawartość. Pliki przechowywane na tym systemie plików
+są kompresowane w locie, a Fuse pozwala utworzyć przezroczysty
+interfejs między skompresowanymi plikami a aplikacjami użytkownika
 
 %prep
 %setup -q
