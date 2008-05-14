@@ -1,12 +1,12 @@
 Summary:	Transparent read-write compression filesystem
 Summary(pl.UTF-8):	System plików z przezroczystą kompresją danych
 Name:		fusecompress
-Version:	1.99.14
+Version:	1.99.16
 Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	http://miio.net/files/%{name}-%{version}.tar.gz
-# Source0-md5:	a1342b263ae1d115af5c11568bdedd72
+# Source0-md5:	2dbd49a5cb079315dafd1f2a677fd61e
 URL:		http://miio.net/fusecompress/
 BuildRequires:	autoconf
 BuildRequires:	automake
