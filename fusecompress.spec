@@ -1,19 +1,23 @@
+%define	tag	2a6dff0dc32c4c93cc08b2ba224bf9ef8e2485b4
 Summary:	Transparent read-write compression filesystem
 Summary(pl.UTF-8):	System plików z przezroczystą kompresją danych
 Name:		fusecompress
-Version:	1.99.19
-Release:	1
+Version:	2.0
+Release:	0.1
 License:	GPL
 Group:		Applications/System
-Source0:	http://miio.net/files/%{name}-%{version}.tar.gz
-# Source0-md5:	2d1e10397f888ac46697070790a06ddc
+# http://github.com/tex/fusecompress/tree/master
+Source0:	tex-fusecompress-%{tag}.tar.gz
+# Source0-md5:	a0b2d0b3266e604fb4684a658aa0d87e
 URL:		http://miio.net/fusecompress/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	boost-devel
 BuildRequires:	bzip2-devel
 BuildRequires:	libfuse-devel
+BuildRequires:	lzma-devel
 BuildRequires:	libstdc++-devel
-BuildRequires:	rlog-devel
+BuildRequires:	rlog-devel >= 1.3
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -30,7 +34,7 @@ są kompresowane w locie, a Fuse pozwala utworzyć przezroczysty
 interfejs między skompresowanymi plikami a aplikacjami użytkownika
 
 %prep
-%setup -q
+%setup -q -n tex-%{name}-%{tag}
 
 %build
 %{__aclocal}
