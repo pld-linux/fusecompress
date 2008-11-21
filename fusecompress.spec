@@ -9,12 +9,14 @@ Group:		Applications/System
 # http://github.com/tex/fusecompress/tree/master
 Source0:	tex-fusecompress-%{tag}.tar.gz
 # Source0-md5:	a0b2d0b3266e604fb4684a658aa0d87e
+Patch0:		%{name}-build.patch
 URL:		http://miio.net/fusecompress/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	boost-devel
 BuildRequires:	bzip2-devel
 BuildRequires:	libfuse-devel
+BuildRequires:	libmagic-devel
 BuildRequires:	lzma-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	rlog-devel >= 1.3
@@ -35,6 +37,7 @@ interfejs między skompresowanymi plikami a aplikacjami użytkownika
 
 %prep
 %setup -q -n tex-%{name}-%{tag}
+%patch0 -p1
 
 %build
 %{__aclocal}
