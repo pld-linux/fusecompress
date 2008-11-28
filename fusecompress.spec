@@ -9,6 +9,7 @@ Group:		Applications/System
 # http://github.com/tex/fusecompress/tree/master
 Source0:	tex-fusecompress-%{tag}.tar.gz
 # Source0-md5:	733fcf027b7d030d659bbb655c527999
+Patch0:		%{name}-boost.patch
 URL:		http://miio.net/fusecompress/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -36,6 +37,7 @@ interfejs między skompresowanymi plikami a aplikacjami użytkownika
 
 %prep
 %setup -q -n tex-%{name}-%{tag}
+%patch0 -p1
 
 %build
 %{__aclocal} -I m4
@@ -58,6 +60,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+mv $RPM_BUILD_ROOT%{_bindir}/{print_compress,fusecompress_print_compress}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -66,4 +70,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/%{name}
 %attr(755,root,root) %{_bindir}/%{name}_offline
+%attr(755,root,root) %{_bindir}/%{name}_print_compress
 %{_mandir}/man1/*.1*
