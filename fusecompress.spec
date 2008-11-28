@@ -18,6 +18,7 @@ BuildRequires:	bzip2-devel
 BuildRequires:	libfuse-devel
 BuildRequires:	libmagic-devel
 BuildRequires:	lzma-devel
+BuildRequires:	lzo-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	rlog-devel >= 1.3
 BuildRequires:	zlib-devel
