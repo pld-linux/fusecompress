@@ -1,15 +1,14 @@
-%define	tag	2a6dff0dc32c4c93cc08b2ba224bf9ef8e2485b4
+%define	tag	c5e5eb58e48a6ad08298f178a9d91b9539abf883
 Summary:	Transparent read-write compression filesystem
 Summary(pl.UTF-8):	System plików z przezroczystą kompresją danych
 Name:		fusecompress
-Version:	2.0
+Version:	2.2
 Release:	0.1
 License:	GPL
 Group:		Applications/System
 # http://github.com/tex/fusecompress/tree/master
 Source0:	tex-fusecompress-%{tag}.tar.gz
-# Source0-md5:	a0b2d0b3266e604fb4684a658aa0d87e
-Patch0:		%{name}-build.patch
+# Source0-md5:	733fcf027b7d030d659bbb655c527999
 URL:		http://miio.net/fusecompress/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -37,14 +36,20 @@ interfejs między skompresowanymi plikami a aplikacjami użytkownika
 
 %prep
 %setup -q -n tex-%{name}-%{tag}
-%patch0 -p1
 
 %build
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure
+%configure \
+	--with-boost-libdir=%{_libdir} \
+	--with-boost-serialization=boost_serialization \
+	--with-boost-iostreams=boost_iostreams \
+	--with-boost-program-options=boost_program_options \
+	--with-boost-filesystem=boost_filesystem \
+	--with-lzma \
+	--with-z \
+	--with-bz2 \
+	--with-lzo2
 %{__make}
 
 %install
