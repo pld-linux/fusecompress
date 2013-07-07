@@ -3,7 +3,7 @@ Summary:	Transparent read-write compression filesystem
 Summary(pl.UTF-8):	System plików z przezroczystą kompresją danych
 Name:		fusecompress
 Version:	2.6
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Applications/System
 Source0:	https://github.com/tex/fusecompress/archive/2.6.tar.gz
