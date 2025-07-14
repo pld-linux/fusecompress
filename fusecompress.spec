@@ -38,7 +38,7 @@ interfejs między skompresowanymi plikami a aplikacjami użytkownika
 
 %prep
 %setup -q -n %{name}-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 # gold causes really weird issues with fuse apps
 install -d ld-dir
